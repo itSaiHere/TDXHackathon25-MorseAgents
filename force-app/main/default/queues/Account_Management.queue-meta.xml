@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Account Management</name>
+    <queueMembers>
+        <users>
+            <user>b2bmaintegration@00dns00000iclfg2av.ext</user>
+            <user>transaction_agent@00dns00000iclfg.ext</user>
+            <user>morse_agent@00dns00000iclfg.ext</user>
+            <user>insightsintegration@00dns00000iclfg2av.ext</user>
+            <user>integration@00dns00000iclfg2av.com</user>
+            <user>logeshpsna@gmail.com.morse</user>
+            <user>madhu@hack.com</user>
+            <user>epic.a009bb8a4c83@orgfarm.com</user>
+            <user>prabhu06@hack.com</user>
+            <user>saivajcs@hack.com</user>
+            <user>salesforceiqintegration@00dns00000iclfg2av.ext</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>
