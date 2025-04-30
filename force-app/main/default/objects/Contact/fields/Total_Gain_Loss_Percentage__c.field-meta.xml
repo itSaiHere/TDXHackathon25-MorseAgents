@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Gain_Loss_Percentage__c</fullName>
+    <label>Total Gain/Loss Percentage</label>
+    <summarizedField>Portfolio__c.Gain_Loss_Percentage__c</summarizedField>
+    <summaryForeignKey>Portfolio__c.User_Contact__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>
