@@ -1,0 +1,96 @@
+import { LightningElement, track } from 'lwc';
+import callAgent from '@salesforce/apex/callAgent.callAgent'
+import { loadScript } from 'lightning/platformResourceLoader';
+import CHART_JS from '@salesforce/resourceUrl/ChartJS'; // Adjust the name based on your static resource
+
+
+export default class ChatWindow extends LightningElement {
+    @track messages = [];
+    inputMessage = '';
+    chatSessionId = '';
+
+     renderedCallback() {
+        if (this.chart) {
+            return;
+        }
+        loadScript(this, CHART_JS)
+            .then(() => {
+                this.initializeChart();
+            })
+            .catch(error => {
+                console.error("Error loading Chart.js", error);
+            });
+    }
+
+    handleInputChange(event) {
+        this.inputMessage = event.target.value;
+    }
+
+    handleSendMessage() {
+        if (this.inputMessage.trim() !== '') {
+            const newMessage = {
+                id: this.messages.length + 1,
+                text: this.inputMessage,
+                class: 'user-message',
+                chart: true
+            };
+            
+            this.messages = [...this.messages, newMessage];
+            this.inputMessage = ''; // Clear the input field
+            callAgent({prompt: newMessage.text ,sessionId: this.chatSessionId}).
+            then(
+                result =>{
+                    console.log(result);
+                    let response = JSON.parse(result.agentResponse);
+                    this.chatSessionId = result.sessionId;
+                    this.messages = [...this.messages,{
+                        id: this.messages.length + 1,
+                        text: response.value,
+                        class: 'bot-message'
+                    }];
+                }
+            )
+            .catch()
+        }
+        
+        setTimeout(()=>{
+            const ctx = this.template.querySelector('.myChart').getContext('2d');
+        this.chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });}
+            ,200
+        );
+        
+    }
+}

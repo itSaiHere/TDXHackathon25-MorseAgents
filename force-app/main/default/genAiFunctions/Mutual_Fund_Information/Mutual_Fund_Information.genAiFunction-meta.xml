@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>when user asks about a specific fund, give the information</description>
+    <invocationTarget>Mutual_Fund_Information</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Mutual Fund Information</masterLabel>
+    <progressIndicatorMessage>Hold tight, we are searching for the funds..</progressIndicatorMessage>
+</GenAiFunction>

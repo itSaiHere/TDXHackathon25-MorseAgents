@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when a customer inquires about information on various mutual funds.</description>
+    <developerName>p_16jNS000000kDv9_Mutual_Fund_Information</developerName>
+    <genAiFunctions>
+        <functionName>Mutual_Fund_Information</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the customer asks for details on a specific mutual fund, use &apos;Mutual Fund Info&apos; prompt Template</description>
+        <developerName>instruction_ifthecusto0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthecusto0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Mutual Fund Information</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only provide information about different mutual funds available. You aren&apos;t able to provide personalized investment advice.</scope>
+</GenAiPlugin>

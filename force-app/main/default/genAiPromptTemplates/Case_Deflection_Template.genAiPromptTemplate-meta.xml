@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_5</activeVersionIdentifier>
+    <description>This case template is used to deflect and improve the case resolution using email</description>
+    <developerName>Case_Deflection_Template</developerName>
+    <masterLabel>Case Deflection Template</masterLabel>
+    <templateVersions>
+        <content># Instructions #
+You are a service agent in the Morse Financial Services.
+You should rely only on the data provided by us to make the decision.
+
+#Input for You# to make decision
+{!$Input:Subject}
+{!$Input:Emailbody}
+
+
+Do Sentiment analysis.
+If the emailBody sounds tone of urgency provide provide as &quot;High&quot;
+
+
+# Required Output Format #
+{
+Queue: &quot;Service Agent Queue&quot;,
+Sentiment:&quot;Positive&quot;
+Priority:&quot;Medium&quot;
+}
+
+</content>
+        <inputs>
+            <apiName>Subject</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Subject</masterLabel>
+            <referenceName>Input:Subject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Emailbody</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Emailbody</masterLabel>
+            <referenceName>Input:Emailbody</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content># Instructions #
+You are a service agent in the Morse Financial Services.
+You should rely only on the data provided by us to make the decision.
+
+#Input for You# to make decision
+{!$Input:Subject}
+{!$Input:Emailbody}
+
+
+Do Sentiment analysis.
+If the emailBody sounds tone of urgency provide provide as &quot;High&quot;
+
+
+# Required Output Format #
+{
+&quot;Queue&quot; : &quot;Service Agent Queue&quot;,
+&quot;Sentiment&quot; : &quot;Positive&quot;,
+&quot;Priority&quot;:&quot;Medium&quot;
+}
+
+</content>
+        <inputs>
+            <apiName>Subject</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Subject</masterLabel>
+            <referenceName>Input:Subject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Emailbody</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Emailbody</masterLabel>
+            <referenceName>Input:Emailbody</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content># Instructions #
+You are a service agent in the Morse Financial Services.
+You should rely only on the data provided by us to make the decision.
+
+#Input for You# to make decision
+{!$Input:Subject}
+{!$Input:Emailbody}
+
+Do Sentiment analysis.Output expected among these three values &quot;Positive&quot;,&quot;Negative&quot;,&quot;Neutral&quot;
+
+
+If the {!$Input:Subject} or {!$Input:Emailbody} is a question related to the data in {!$EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907.results} 
+use this to populate the suggestion in output else leave the suggestion blank
+
+
+# Required Output Format #
+{
+&quot;Queue&quot; : &quot;Service Agent Queue&quot;,
+&quot;Sentiment&quot; : &quot;Positive&quot;,
+&quot;Priority&quot;:&quot;Medium&quot;
+&quot;Suggestion&quot;:&quot;&quot;
+}
+
+</content>
+        <inputs>
+            <apiName>Emailbody</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Emailbody</masterLabel>
+            <referenceName>Input:Emailbody</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Subject</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Subject</masterLabel>
+            <referenceName>Input:Subject</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Subject}{!$Input:Emailbody}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content># Instructions #
+You are a service agent in the Morse Financial Services.
+You should rely only on the data provided by us to make the decision.
+
+#Input for You# to make decision
+{!$Input:Subject}
+{!$Input:Emailbody}
+
+Do Sentiment analysis.Output expected among these three values &quot;Positive&quot;,&quot;Negative&quot;,&quot;Neutral&quot;
+
+
+If the {!$Input:Subject} or {!$Input:Emailbody} is a question related to the data in {!$EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907.results} 
+use this to populate the suggestion in output else leave the suggestion blank
+
+If the case is related to &apos;new mutual fund account&apos; assign to this Queue - &apos;Account Management&apos; and if it is related to  &quot;performance of my mutual fund investments&quot; assign to Investment Services
+If the case is related to &quot;forgot my account password&quot; or &quot;contact customer support&quot; -  Please assign Customer Support Queue
+
+If the case is related to &quot;Withdrawal plan&quot; assign the case to &quot;Transactions and Operations&quot; Queue and if the case is related to &quot;close my mutual fund account&quot; or &quot;change the ownership of my mutual fund account&quot; assign to &quot;Account Management&quot; Queue
+
+
+# Required Output Format #
+{
+&quot;Queue&quot; : &quot;Service Agent Queue&quot;,
+&quot;Sentiment&quot; : &quot;Positive&quot;,
+&quot;Priority&quot;:&quot;Medium&quot;
+&quot;Suggestion&quot;:&quot;&quot;
+}
+
+</content>
+        <inputs>
+            <apiName>Subject</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Subject</masterLabel>
+            <referenceName>Input:Subject</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Emailbody</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Emailbody</masterLabel>
+            <referenceName>Input:Emailbody</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Subject}{!$Input:Emailbody}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content># Instructions #
+You are a service agent in the Morse Financial Services.
+You should rely only on the data provided by us to make the decision.
+
+#Input for You# to make decision
+{!$Input:Subject}
+{!$Input:Emailbody}
+
+Do Sentiment analysis.Output expected among these three values &quot;Positive&quot;,&quot;Negative&quot;,&quot;Neutral&quot;
+
+
+If the {!$Input:Subject} or {!$Input:Emailbody} is a question related to the data in {!$EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907.results} 
+use this to populate the suggestion in output else leave the suggestion blank
+
+If the case is related to &apos;new mutual fund account&apos; assign to this Queue - &apos;Account Management&apos; and if it is related to  &quot;performance of my mutual fund investments&quot; assign to Investment Services
+If the case is related to &quot;forgot my account password&quot; or &quot;contact customer support&quot; -  Please assign Customer Support Queue
+
+If the case is related to &quot;Withdrawal plan&quot; assign the case to &quot;Transactions and Operations&quot; Queue and if the case is related to &quot;close my mutual fund account&quot; or &quot;change the ownership of my mutual fund account&quot; assign to &quot;Account Management&quot; Queue
+
+
+# Required Output Format #
+{
+&quot;Queue&quot; : &quot;Service Agent Queue&quot;,
+&quot;Sentiment&quot; : &quot;Positive&quot;,
+&quot;Priority&quot;:&quot;Medium&quot;
+&quot;Suggestion&quot;:&quot;&quot;
+}
+
+</content>
+        <inputs>
+            <apiName>Emailbody</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Emailbody</masterLabel>
+            <referenceName>Input:Emailbody</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Subject</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Subject</masterLabel>
+            <referenceName>Input:Subject</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Subject}{!$Input:Emailbody}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Knowledge_Article_Version_Retriever_1Cx_LfG2f773907</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

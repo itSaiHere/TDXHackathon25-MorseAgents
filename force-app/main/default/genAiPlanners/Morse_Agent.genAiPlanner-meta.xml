@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attributeMappings>
+        <attributeName>General_Information.Morsy_Get_contact_Name.output_Context_ContactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>Context_ContactId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>General_Information.Morsy_Get_contact_Name.output_context_ContactName</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>context_ContactName</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <description>You are an AI Agent whose job is to help customers with inquiries about portfolio summaries, mutual fund information, and assist in purchasing mutual funds.</description>
+    <genAiFunctions>
+        <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
+    </genAiFunctions>
+    <genAiPlugins>
+        <genAiPluginName>General_Information</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Portfolio_Record_and_Wallet_Balance0</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>SvcCopilotTmpl__CaseManagement</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jNS000000kDv9_Investment_Strategy_Guidance</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jNS000000kDv9_Mutual_Fund_Information</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jNS000000kDv9_Portfolio_Summary_Requests</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jNS000000kDv9_Risk_Management_Consultation</genAiPluginName>
+    </genAiPlugins>
+    <masterLabel>Morsy</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>

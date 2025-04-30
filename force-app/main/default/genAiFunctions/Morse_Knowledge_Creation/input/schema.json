@@ -1,0 +1,21 @@
+{
+  "required" : [ "ArticleDescription", "ArticleTitle" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ArticleDescription" : {
+      "title" : "ArticleDescription",
+      "description" : "Brief description containing all the details",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "ArticleTitle" : {
+      "title" : "ArticleTitle",
+      "description" : "Title of the article usually to identify the knowledge article",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,28 @@
+{
+  "required" : [ "Input:query", "Input:chunks", "citationMode" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:query" : {
+      "title" : "query",
+      "description" : "The mutual fund name mentioned in the chat would be scheme_name__c of data cloud object",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:chunks" : {
+      "title" : "chunks",
+      "description" : "Compare the provided records and identify the top matches based on relevance to the user’s input. Use key fields such as Name, Title, Industry, and Interests to evaluate similarity. Return a brief summary for the top 5 matches",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "When providing your response, reference the source record for each point you mention by including the Name or ID from the corresponding record. Ensure that your output is concise and clear",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

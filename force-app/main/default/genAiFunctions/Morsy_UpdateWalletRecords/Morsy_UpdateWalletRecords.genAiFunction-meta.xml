@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is to update the wallet amount of the contact, and is called immediately after the portfolio is created</description>
+    <invocationTarget>Morsy_UpdateWalletRecords</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Morsy - UpdateWalletRecords</masterLabel>
+    <progressIndicatorMessage>hang in</progressIndicatorMessage>
+</GenAiFunction>

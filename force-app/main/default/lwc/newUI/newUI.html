@@ -1,0 +1,27 @@
+<template>
+    <div class="chat-window">
+        <div class="chat-header">
+            <h2>Chat</h2>
+        </div>
+        <div class="chat-messages">
+            <template for:each={messages} for:item="message">
+                <template if:false={message.chart}>
+                    <div key={message.id} class={message.class}>
+                        {message.text}
+                    </div>
+                </template>
+                <template if:true={message.chart}>
+                   <!--<div key={message.id} class={message.class}> -->
+                        <div class="chart-container" key={message.id}>
+                            <canvas lwc:dom="manual" class="myChart"></canvas>
+                        </div>
+                    <!--</div> -->
+                </template>
+            </template>
+        </div>
+        <div class="chat-input">
+            <lightning-input type="text" label="Type a message" value={inputMessage} onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Send" onclick={handleSendMessage}></lightning-button>
+        </div>
+    </div>
+</template>

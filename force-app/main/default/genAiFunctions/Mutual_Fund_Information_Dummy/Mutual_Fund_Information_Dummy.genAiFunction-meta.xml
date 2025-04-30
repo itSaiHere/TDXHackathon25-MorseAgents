@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>When a user asks for suggestion about mutual funds uses this action</description>
+    <invocationTarget>Mutual_Fund_Information_Dummy</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Mutual Fund Information Dummy</masterLabel>
+</GenAiFunction>

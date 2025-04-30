@@ -1,0 +1,14 @@
+{
+  "required" : [ "EmailInput" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "EmailInput" : {
+      "title" : "EmailInput",
+      "description" : "get the email input from user and use it as input for flow",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

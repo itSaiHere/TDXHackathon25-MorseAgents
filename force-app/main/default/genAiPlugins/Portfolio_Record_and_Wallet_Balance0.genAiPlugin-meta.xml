@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Use this topic when a user needs to create and assign portfolio records after a mutual fund purchase.</description>
+    <developerName>Portfolio_Record_and_Wallet_Balance0</developerName>
+    <genAiFunctions>
+        <functionName>Morsy_CreatePortfolioRecords</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Morsy_invested_info_and_contact</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>After a mutual fund purchase, use the action to create a portfolio record</description>
+        <developerName>instruction_afteramutu0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_afteramutu0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Assign the created portfolio record to the respective contact.</description>
+        <developerName>instruction_assignthec1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_assignthec1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Do the wallet update with the balance update</description>
+        <developerName>instruction_dothewalle2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_dothewalle2</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Portfolio Record and Wallet Balance</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only create and assign portfolio records to users contact. You aren&apos;t able to modify existing portfolio records.</scope>
+</GenAiPlugin>

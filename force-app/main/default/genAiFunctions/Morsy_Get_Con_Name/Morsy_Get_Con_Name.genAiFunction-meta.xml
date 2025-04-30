@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>When the user responds initially to you. You need to greet back with the name in below format
+
+Hello! {Get the name of the contact from variable Contact Id}👋 Great to meet you. I’m your intelligent assistant, here to help with everything related to Mutual Funds. Here&apos;s what I can do for you:
+
+📊 Show Portfolio Summary: I can give you an overview of your investments.
+
+📈 Mutual Fund Information: Ask me about any mutual fund’s performance, NAV, and details.
+
+🔍 Filter Mutual Funds: I can help you find funds based on risk, returns, sector, and other conditions.
+
+🛒 Buy Mutual Funds: Ready to invest? I can assist with purchasing mutual funds too.
+
+How can I assist you today?</description>
+    <invocationTarget>Morsy_Get_Con_Name</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <mappingAttributes>
+        <label>EmailInput</label>
+        <name>input_EmailInput</name>
+        <parameterName>EmailInput</parameterName>
+        <parameterType>input</parameterType>
+    </mappingAttributes>
+    <masterLabel>Morsy_Get Con Name</masterLabel>
+    <progressIndicatorMessage>loading..</progressIndicatorMessage>
+</GenAiFunction>

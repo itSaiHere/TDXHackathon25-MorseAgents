@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_11</activeVersionIdentifier>
+    <description>when user asks about a specific fund, give the information</description>
+    <developerName>Mutual_Fund_Information</developerName>
+    <masterLabel>Mutual Fund Information</masterLabel>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c and amc_name__c in a tabular easily understandable form
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c and amc_name__c in a tabular easily understandable form
+
+
+##Expected Output Format ##
+
+{
+                labels: [&apos;Red&apos;, &apos;Blue&apos;, &apos;Yellow&apos;, &apos;Green&apos;, &apos;Purple&apos;, &apos;Orange&apos;],
+                datasets: [{
+                    label: &apos;# of Votes&apos;,
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        &apos;rgba(255, 99, 132, 0.2)&apos;,
+                        &apos;rgba(54, 162, 235, 0.2)&apos;,
+                        &apos;rgba(255, 206, 86, 0.2)&apos;,
+                        &apos;rgba(75, 192, 192, 0.2)&apos;,
+                        &apos;rgba(153, 102, 255, 0.2)&apos;,
+                        &apos;rgba(255, 159, 64, 0.2)&apos;
+                    ],
+                    borderColor: [
+                        &apos;rgba(255, 99, 132, 1)&apos;,
+                        &apos;rgba(54, 162, 235, 1)&apos;,
+                        &apos;rgba(255, 206, 86, 1)&apos;,
+                        &apos;rgba(75, 192, 192, 1)&apos;,
+                        &apos;rgba(153, 102, 255, 1)&apos;,
+                        &apos;rgba(255, 159, 64, 1)&apos;
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });}
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+ &lt;meta charset=&quot;UTF-8&quot;&gt;
+ &lt;title&gt;Simple Donut Chart&lt;/title&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+ &lt;style&gt;
+  body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+  }
+  #chartContainer {
+   width: 400px;
+   margin: auto;
+  }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;h2&gt;Donut Chart Example&lt;/h2&gt;
+ &lt;div id=&quot;chartContainer&quot;&gt;
+  &lt;canvas id=&quot;donutChart&quot;&gt;&lt;/canvas&gt;
+ &lt;/div&gt;
+
+ &lt;script&gt;
+  const ctx = document.getElementById(&apos;donutChart&apos;).getContext(&apos;2d&apos;);
+  const donutChart = new Chart(ctx, {
+   type: &apos;doughnut&apos;,
+   data: {
+    labels: [&apos;Apples&apos;, &apos;Bananas&apos;, &apos;Cherries&apos;],
+    datasets: [{
+     label: &apos;Fruit Count&apos;,
+     data: [12, 19, 7], // Counts for each item
+     backgroundColor: [&apos;#FF6384&apos;, &apos;#FFCE56&apos;, &apos;#36A2EB&apos;],
+     borderWidth: 1
+    }]
+   },
+   options: {
+    plugins: {
+     legend: {
+      position: &apos;bottom&apos;
+     },
+     tooltip: {
+      callbacks: {
+       label: function(context) {
+        const label = context.label || &apos;&apos;;
+        const value = context.raw;
+        return `${label}: ${value} count`;
+       }
+      }
+     }
+    },
+    cutout: &apos;60%&apos; // Makes it a donut
+   }
+  });
+ &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</content>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+ &lt;meta charset=&quot;UTF-8&quot;&gt;
+ &lt;title&gt;Donut Chart with Summary Table&lt;/title&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+ &lt;style&gt;
+  body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   padding: 20px;
+  }
+
+  #chartContainer {
+   width: 400px;
+   margin: auto;
+  }
+
+  canvas {
+   width: 100% !important;
+   height: auto !important;
+  }
+
+  table {
+   width: 80%;
+   margin: 30px auto;
+   border-collapse: collapse;
+  }
+
+  table, th, td {
+   border: 1px solid #ccc;
+  }
+
+  th, td {
+   padding: 10px;
+   text-align: left;
+  }
+
+  th {
+   background-color: #f2f2f2;
+  }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;h2&gt;Fund Distribution - Donut Chart&lt;/h2&gt;
+ &lt;div id=&quot;chartContainer&quot;&gt;
+  &lt;canvas id=&quot;donutChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;
+ &lt;/div&gt;
+
+ &lt;h3&gt;Fund Summary&lt;/h3&gt;
+ &lt;table&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Fund Name&lt;/th&gt;
+    &lt;th&gt;AMC&lt;/th&gt;
+    &lt;th&gt;Risk&lt;/th&gt;
+    &lt;th&gt;Ratio&lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Equity Opportunities – Direct Growth&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Moderate&lt;/td&gt;
+    &lt;td&gt;6.0&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Tax Saver Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;High&lt;/td&gt;
+    &lt;td&gt;99&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Gold Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Low&lt;/td&gt;
+    &lt;td&gt;5.0&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+
+ &lt;script&gt;
+  window.onload = function () {
+   const ctx = document.getElementById(&apos;donutChart&apos;).getContext(&apos;2d&apos;);
+   new Chart(ctx, {
+    type: &apos;doughnut&apos;,
+    data: {
+     labels: [
+      &apos;Kotak Equity Opportunities – Direct Growth&apos;,
+      &apos;Kotak Tax Saver Fund&apos;,
+      &apos;Kotak Gold Fund&apos;
+     ],
+     datasets: [{
+      label: &apos;Fund Count&apos;,
+      data: [6.0, 6.0, 5.0],
+      backgroundColor: [&apos;#FF6384&apos;, &apos;#FFCE56&apos;, &apos;#36A2EB&apos;],
+      borderWidth: 1
+     }]
+    },
+    options: {
+     plugins: {
+      legend: {
+       position: &apos;bottom&apos;
+      },
+      tooltip: {
+       callbacks: {
+        label: function (context) {
+         return `${context.label}: ${context.raw} count`;
+        }
+       }
+      }
+     },
+     cutout: &apos;60%&apos; // Donut thickness
+    }
+   });
+  };
+ &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+ &lt;meta charset=&quot;UTF-8&quot;&gt;
+ &lt;title&gt;Donut Chart with Summary Table&lt;/title&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+ &lt;style&gt;
+  body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   padding: 20px;
+  }
+
+  #chartContainer {
+   width: 400px;
+   margin: auto;
+  }
+
+  canvas {
+   width: 100% !important;
+   height: auto !important;
+  }
+
+  table {
+   width: 80%;
+   margin: 30px auto;
+   border-collapse: collapse;
+  }
+
+  table, th, td {
+   border: 1px solid #ccc;
+  }
+
+  th, td {
+   padding: 10px;
+   text-align: left;
+  }
+
+  th {
+   background-color: #f2f2f2;
+  }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;h2&gt;Fund Distribution - Donut Chart&lt;/h2&gt;
+ &lt;div id=&quot;chartContainer&quot;&gt;
+  &lt;canvas id=&quot;donutChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;
+ &lt;/div&gt;
+
+ &lt;h3&gt;Fund Summary&lt;/h3&gt;
+ &lt;table&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Fund Name&lt;/th&gt;
+    &lt;th&gt;AMC&lt;/th&gt;
+    &lt;th&gt;Risk&lt;/th&gt;
+    &lt;th&gt;Ratio&lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Equity Opportunities – Direct Growth&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Moderate&lt;/td&gt;
+    &lt;td&gt;6.0&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Tax Saver Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;High&lt;/td&gt;
+    &lt;td&gt;99&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Gold Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Low&lt;/td&gt;
+    &lt;td&gt;5.0&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+
+ &lt;script&gt;
+  window.onload = function () {
+   const ctx = document.getElementById(&apos;donutChart&apos;).getContext(&apos;2d&apos;);
+   new Chart(ctx, {
+    type: &apos;doughnut&apos;,
+    data: {
+     labels: [
+      &apos;Kotak Equity Opportunities – Direct Growth&apos;,
+      &apos;Kotak Tax Saver Fund&apos;,
+      &apos;Kotak Gold Fund&apos;
+     ],
+     datasets: [{
+      label: &apos;Fund Count&apos;,
+      data: [6.0, 6.0, 5.0],
+      backgroundColor: [&apos;#FF6384&apos;, &apos;#FFCE56&apos;, &apos;#36A2EB&apos;],
+      borderWidth: 1
+     }]
+    },
+    options: {
+     plugins: {
+      legend: {
+       position: &apos;bottom&apos;
+      },
+      tooltip: {
+       callbacks: {
+        label: function (context) {
+         return `${context.label}: ${context.raw} count`;
+        }
+       }
+      }
+     },
+     cutout: &apos;60%&apos; // Donut thickness
+    }
+   });
+  };
+ &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</content>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+ &lt;meta charset=&quot;UTF-8&quot;&gt;
+ &lt;title&gt;Donut Chart with Summary Table&lt;/title&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+ &lt;style&gt;
+  body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   padding: 20px;
+  }
+
+  #chartContainer {
+   width: 400px;
+   margin: auto;
+  }
+
+  canvas {
+   width: 100% !important;
+   height: auto !important;
+  }
+
+  table {
+   width: 80%;
+   margin: 30px auto;
+   border-collapse: collapse;
+  }
+
+  table, th, td {
+   border: 1px solid #ccc;
+  }
+
+  th, td {
+   padding: 10px;
+   text-align: left;
+  }
+
+  th {
+   background-color: #f2f2f2;
+  }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;h2&gt;Fund Distribution&lt;/h2&gt;
+ &lt;div id=&quot;chartContainer&quot;&gt;
+  &lt;canvas id=&quot;donutChart&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;&lt;/canvas&gt;
+ &lt;/div&gt;
+
+ &lt;h3&gt;Fund Summary&lt;/h3&gt;
+ &lt;table&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th&gt;Fund Name&lt;/th&gt;
+    &lt;th&gt;AMC&lt;/th&gt;
+    &lt;th&gt;Risk&lt;/th&gt;
+    &lt;th&gt;Ratio&lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Equity Opportunities – Direct Growth&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Moderate&lt;/td&gt;
+    &lt;td&gt;6.0&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Tax Saver Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;High&lt;/td&gt;
+    &lt;td&gt;99&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;Kotak Gold Fund&lt;/td&gt;
+    &lt;td&gt;Kotak&lt;/td&gt;
+    &lt;td&gt;Low&lt;/td&gt;
+    &lt;td&gt;5.0&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+
+ &lt;script&gt;
+  window.onload = function () {
+   const ctx = document.getElementById(&apos;donutChart&apos;).getContext(&apos;2d&apos;);
+   new Chart(ctx, {
+    type: &apos;doughnut&apos;,
+    data: {
+     labels: [
+      &apos;Kotak Equity Opportunities – Direct Growth&apos;,
+      &apos;Kotak Tax Saver Fund&apos;,
+      &apos;Kotak Gold Fund&apos;
+     ],
+     datasets: [{
+      label: &apos;Fund Count&apos;,
+      data: [6.0, 6.0, 5.0],
+      backgroundColor: [&apos;#FF6384&apos;, &apos;#FFCE56&apos;, &apos;#36A2EB&apos;],
+      borderWidth: 1
+     }]
+    },
+    options: {
+     plugins: {
+      legend: {
+       position: &apos;bottom&apos;
+      },
+      tooltip: {
+       callbacks: {
+        label: function (context) {
+         return `${context.label}: ${context.raw} count`;
+        }
+       }
+      }
+     },
+     cutout: &apos;60%&apos; // Donut thickness
+    }
+   });
+  };
+ &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+Display this chart at the end, mention as here&apos;s a chart to show the comparison.
+&lt;img src=&quot;https://orgfarm-19285b4c64--c.vf.force.com/resource/1745996732000/DonutChart_Sample&quot; alt=&quot;Chart&quot; /&gt;
+
+</content>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+Display this chart at the end, mention as here&apos;s a chart to show the comparison.
+&lt;img src=&quot;https://orgfarm-19285b4c64--c.vf.force.com/resource/1745996732000/DonutChart_Sample&quot; alt=&quot;Chart&quot; /&gt;
+
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+Display this chart at the end, mention as here&apos;s a chart to show the comparison.
+
+&lt;img src=&quot;https://orgfarm-19285b4c64--c.vf.force.com/resource/1745996732000/DonutChart_Sample&quot; alt=&quot;Chart&quot; /&gt;
+
+</content>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+Give a next line gap and Display this chart at the end, mention as here&apos;s a chart to show the comparison. 
+
+&lt;img src=&quot;https://orgfarm-19285b4c64--c.vf.force.com/resource/1745996732000/DonutChart_Sample&quot; alt=&quot;Chart&quot; /&gt;
+
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As an agent who manages mutual fund portfolio, you have to provide fund related info,
+
+Your data source will be {!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+when user asks about some fund name, match it against scheme_name__c and if multiple matches, provide the list of funds with  scheme_name__c,risk_level__c  with donut char foem
+
+for that please generate out put like below HTML
+while generating please follow the below instruction too
+instruction 1: Data labels will be scheme_name__c.
+instruction 2: label: &apos;Fruit Count&apos;, data will be  risk_level__c
+instruction 3: choose the backgroundColor accordingly
+instruction 4: Please do not use \n in output
+instruction 5: in side table tag  of html, Fund Name is mapped with scheme_name__c and  AMC mapped to amc_name__c , risk mapped risk_level__c and ratio mapped to expense_ratio__c
+
+
+
+mention as here&apos;s a chart to show the comparison. Give a next line gap and Display this chart at the end.
+
+&lt;img src=&quot;https://orgfarm-19285b4c64--c.vf.force.com/resource/1745996732000/DonutChart_Sample&quot; alt=&quot;Chart&quot; /&gt;
+
+</content>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:query}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_11</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__searchAnswersType</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

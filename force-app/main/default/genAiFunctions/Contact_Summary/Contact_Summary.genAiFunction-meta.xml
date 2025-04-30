@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>As agent your job is to display the portfolio summary using Contact Summary prompt template</description>
+    <invocationTarget>Contact_Summary</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Contact Summary</masterLabel>
+    <progressIndicatorMessage>please hold tight, we are checking your profile..</progressIndicatorMessage>
+</GenAiFunction>

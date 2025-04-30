@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Create Knowledge Articles when the user is on the case record page and they ask to create a knowledge article.</description>
+    <developerName>Knowledge_Article_Creation</developerName>
+    <genAiFunctions>
+        <functionName>Morse_Knowledge_Creation</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Contact_Summary</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Confirm with the user that all required details are provided before finalizing the knowledge article.</description>
+        <developerName>instruction_confirmwit0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_confirmwit0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Data from the Subject, Description, Internal Comments Field should be used for the article summary. If the internal comments field is empty take from the AI summary Field.
+
+Confirm with the user and create Knowledge Article.</description>
+        <developerName>instruction_datafromth1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_datafromth1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Gather necessary information from the user to complete the knowledge article.</description>
+        <developerName>instruction_gathernece2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_gathernece2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user is on the case record page and asks to create a knowledge article, proceed with the creation.</description>
+        <developerName>instruction_iftheuseri3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftheuseri3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Example
+Internal Comments : 
+Removed duplicate for contact Alex and trigger a password reset email.
+
+Knowledge Summary should be like below
+
+Article Title:
+User Access concern because of duplicate contact
+
+Article Description:
+1. Confirm if the contact has duplicates and remove duplicates. 
+2. Password reset email needs to be triggered.</description>
+        <developerName>instruction_exampleint4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_exampleint4</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Knowledge Article Creation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to create Knowledge Articles when the user requests it while on the case record page.</scope>
+</GenAiPlugin>

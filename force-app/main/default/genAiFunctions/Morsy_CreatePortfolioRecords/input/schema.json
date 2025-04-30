@@ -1,0 +1,20 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "AmountFromAgent" : {
+      "title" : "AmountFromAgent",
+      "description" : "Fund the investment amount entered by the user and pass it to this variable to the flow",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "contactId" : {
+      "title" : "contactId",
+      "description" : "pass the contact id from the agent",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

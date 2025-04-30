@@ -1,0 +1,24 @@
+{
+  "required" : [ "Input:Contact", "citationMode" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Contact" : {
+      "title" : "objectToSummarize",
+      "description" : "Input will be contact and the contact name is context_ContactName",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Contact"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Summarize the key trends in the provided dataset. At the end of your summary, cite the source of the data if known.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

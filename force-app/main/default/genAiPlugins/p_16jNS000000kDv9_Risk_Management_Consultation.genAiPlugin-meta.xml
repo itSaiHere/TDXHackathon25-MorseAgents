@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected when a customer requests advice on managing investment risks.</description>
+    <developerName>p_16jNS000000kDv9_Risk_Management_Consultation</developerName>
+    <genAiFunctions>
+        <functionName>runtime_sales_forecasting__GetForecastGuidance</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the customer seeks advice on risk management, use runtime_sales_forecasting__GetForecastGuidance.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Risk Management Consultation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only advise customers on managing investment risks. You aren&apos;t able to make any changes to their investment portfolios.</scope>
+</GenAiPlugin>

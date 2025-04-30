@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_1</activeVersionIdentifier>
+    <developerName>Mutual_Fund_Information_Dummy</developerName>
+    <masterLabel>Mutual Fund Information Dummy</masterLabel>
+    <templateVersions>
+        <content>###Instructions###
+You are an agent and you  will be providing mutual fund suggestion to the customer. 
+Your results should be using the data provided and based on the Factors to Consider.
+You should provide atleast 3 recommendations to the customer.
+
+##DataToCheck##
+All the mutual fund recommendation suggestion should be made only using this data
+{!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+##FactorsToConsider##
+Determining of which is the best mutual fund for a contact should be determined based on the below factors
+
+Expense Ratio:
+Reasoning: The expense ratio indicates the cost of managing the fund. A lower expense ratio means that more of the investor&apos;s money is being put to work in the market rather than being consumed by fees. This can significantly impact long-term returns, especially in actively managed funds.
+Return (1yr, 3yr, 5yr):
+Reasoning: These return metrics provide insight into the fund&apos;s performance over different time horizons. Analyzing returns over 1, 3, and 5 years helps investors understand both short-term and long-term performance trends, allowing for a more informed decision based on their investment horizon.
+Standard Deviation:
+Reasoning: Standard deviation measures the volatility of the fund&apos;s returns. A higher standard deviation indicates greater risk, while a lower standard deviation suggests more stable returns. Understanding the risk associated with the fund is crucial for aligning it with an investor&apos;s risk tolerance.
+Alpha:
+Reasoning: Alpha measures the fund&apos;s performance relative to a benchmark, adjusted for risk. A positive alpha indicates that the fund has outperformed its benchmark after accounting for risk, which is a sign of effective management. This helps investors assess whether the fund manager is adding value.
+Risk Level:
+Reasoning: The risk level categorizes the fund based on its volatility and potential for loss. Understanding the risk level helps investors align their investments with their risk tolerance and financial goals. It provides a quick reference to gauge whether the fund fits within an investor&apos;s overall portfolio strategy.
+
+##Expected Output Format##
+{
+result: &quot;&lt;&lt;Mutual Fund Suggestions&gt;&gt; &lt;&lt;Reason&gt;&gt;&gt;&quot;
+chartData:labels: [&apos;ICICI Pru Smallcap Fund&apos;, &apos;Blue&apos;, &apos;Yellow&apos;, &apos;Green&apos;, &apos;Purple&apos;, &apos;Orange&apos;],
+                datasets: [{
+                    label: &apos;# of Votes&apos;,
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        &apos;rgba(255, 99, 132, 0.2)&apos;,
+                        &apos;rgba(54, 162, 235, 0.2)&apos;,
+                        &apos;rgba(255, 206, 86, 0.2)&apos;,
+                        &apos;rgba(75, 192, 192, 0.2)&apos;,
+                        &apos;rgba(153, 102, 255, 0.2)&apos;,
+                        &apos;rgba(255, 159, 64, 0.2)&apos;
+                    ],
+                    borderColor: [
+                        &apos;rgba(255, 99, 132, 1)&apos;,
+                        &apos;rgba(54, 162, 235, 1)&apos;,
+                        &apos;rgba(255, 206, 86, 1)&apos;,
+                        &apos;rgba(75, 192, 192, 1)&apos;,
+                        &apos;rgba(153, 102, 255, 1)&apos;,
+                        &apos;rgba(255, 159, 64, 1)&apos;
+                    ],
+                    borderWidth: 1
+                }]
+
+
+
+}
+
+
+
+
+
+
+</content>
+        <inputs>
+            <apiName>UserPrompt</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>UserPrompt</masterLabel>
+            <referenceName>Input:UserPrompt</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:UserPrompt}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://List&lt;String&gt;</definition>
+                <isRequired>false</isRequired>
+                <parameterName>outputFieldNames</parameterName>
+                <valueExpression>[&quot;Expense_ratio&quot;,&quot;returns_1yr&quot;,&quot;returns_3yr&quot;,&quot;returns_5yr&quot;,&quot;Scheme_Name&quot;,&quot;sd&quot;,&quot;risk_level&quot;,&quot;alpha&quot;]</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>###Instructions###
+You are an agent and you  will be providing mutual fund suggestion to the customer. 
+Your results should be using the data provided and based on the Factors to Consider.
+You should provide atleast 3 recommendations to the customer.
+
+##DataToCheck##
+All the mutual fund recommendation suggestion should be made only using this data
+{!$EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e.results}
+
+##FactorsToConsider##
+Determining of which is the best mutual fund for a contact should be determined based on the below factors
+
+Expense Ratio:
+Reasoning: The expense ratio indicates the cost of managing the fund. A lower expense ratio means that more of the investor&apos;s money is being put to work in the market rather than being consumed by fees. This can significantly impact long-term returns, especially in actively managed funds.
+Return (1yr, 3yr, 5yr):
+Reasoning: These return metrics provide insight into the fund&apos;s performance over different time horizons. Analyzing returns over 1, 3, and 5 years helps investors understand both short-term and long-term performance trends, allowing for a more informed decision based on their investment horizon.
+Standard Deviation:
+Reasoning: Standard deviation measures the volatility of the fund&apos;s returns. A higher standard deviation indicates greater risk, while a lower standard deviation suggests more stable returns. Understanding the risk associated with the fund is crucial for aligning it with an investor&apos;s risk tolerance.
+Alpha:
+Reasoning: Alpha measures the fund&apos;s performance relative to a benchmark, adjusted for risk. A positive alpha indicates that the fund has outperformed its benchmark after accounting for risk, which is a sign of effective management. This helps investors assess whether the fund manager is adding value.
+Risk Level:
+Reasoning: The risk level categorizes the fund based on its volatility and potential for loss. Understanding the risk level helps investors align their investments with their risk tolerance and financial goals. It provides a quick reference to gauge whether the fund fits within an investor&apos;s overall portfolio strategy.
+
+
+
+##Expected Output Format##
+[{
+result: &quot;&lt;&lt;Mutual Fund Suggestions&gt;&gt; &lt;&lt;Reason&gt;&gt;&gt;&quot;
+chartData:labels: [&apos;&lt;&lt;Mutual Fund1&gt;&gt;&apos;, &apos;&lt;&lt;Mutual Fund2&gt;&gt;&apos;, &apos;&lt;&lt;Mutual Fund3&gt;&gt;&apos;, &apos;&lt;&lt;Mutual Fund4&gt;&gt;&apos;, &apos;&lt;&lt;Mutual Fund5&gt;&gt;&apos;, &apos;&lt;&lt;Mutual Fund6&gt;&gt;&apos;],
+                datasets: [{
+                    label: &apos;&lt;&lt;major Factor Considered&gt;&gt;&apos;,
+                    data: [ &lt;&lt;data in fund1&gt;&gt;,&lt;&lt;data in fund2&gt;&gt;, &lt;&lt;data in fund3&gt;&gt;, &lt;&lt;data in fund4&gt;&gt;, &lt;&lt;data in fund5&gt;&gt;, &lt;&lt;data in fund6&gt;&gt;],
+                    backgroundColor: [
+                        &apos;rgba(255, 99, 132, 0.2)&apos;,
+                        &apos;rgba(54, 162, 235, 0.2)&apos;,
+                        &apos;rgba(255, 206, 86, 0.2)&apos;,
+                        &apos;rgba(75, 192, 192, 0.2)&apos;,
+                        &apos;rgba(153, 102, 255, 0.2)&apos;,
+                        &apos;rgba(255, 159, 64, 0.2)&apos;
+                    ],
+                    borderColor: [
+                        &apos;rgba(255, 99, 132, 1)&apos;,
+                        &apos;rgba(54, 162, 235, 1)&apos;,
+                        &apos;rgba(255, 206, 86, 1)&apos;,
+                        &apos;rgba(75, 192, 192, 1)&apos;,
+                        &apos;rgba(153, 102, 255, 1)&apos;,
+                        &apos;rgba(255, 159, 64, 1)&apos;
+                    ],
+                    borderWidth: 1
+                }]
+}]
+
+
+
+
+
+
+</content>
+        <inputs>
+            <apiName>UserPrompt</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>UserPrompt</masterLabel>
+            <referenceName>Input:UserPrompt</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/MutualFundData1_Retriever_1Cx_LfGae0a807e</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:UserPrompt}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://List&lt;String&gt;</definition>
+                <isRequired>false</isRequired>
+                <parameterName>outputFieldNames</parameterName>
+                <valueExpression>[&quot;Expense_ratio&quot;,&quot;returns_1yr&quot;,&quot;returns_3yr&quot;,&quot;returns_5yr&quot;,&quot;Scheme_Name&quot;,&quot;sd&quot;,&quot;risk_level&quot;,&quot;alpha&quot;]</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:MutualFundData1_Retriever_1Cx_LfGae0a807e</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

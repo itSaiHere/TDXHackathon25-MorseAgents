@@ -1,0 +1,14 @@
+{
+  "required" : [ "InputEmail" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "InputEmail" : {
+      "title" : "InputEmail",
+      "description" : "Take the email id mentioned by user in the chat",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,15 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ConNameOut" : {
+      "title" : "ConNameOut",
+      "description" : "Using the output from flow greet like below\n\nHello! {ConNameOut}👋 Great to meet you. I’m your intelligent assistant, here to help with everything related to Mutual Funds. Here's what I can do for you:\n\n📊 Show Portfolio Summary: I can give you an overview of your investments.\n\n📈 Mutual Fund Information: Ask me about any mutual fund’s performance, NAV, and details.\n\n🔍 Filter Mutual Funds: I can help you find funds based on risk, returns, sector, and other conditions.\n\n🛒 Buy Mutual Funds: Ready to invest? I can assist with purchasing mutual funds too.\n\nHow can I assist you today?\n",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_6</activeVersionIdentifier>
+    <developerName>Contact_Summary</developerName>
+    <masterLabel>Contact Summary</masterLabel>
+    <relatedEntity>Contact</relatedEntity>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Total_Gain_Loss_Percentage__c}
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Average_Gain_Loss_Percent__c}
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Average_Gain_Loss_Percent__c}%
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+the input is {!$Input:Contact.Id}
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Average_Gain_Loss_Percent__c}%
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Average_Gain_Loss_Percent__c}%
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>As a mutual fund managing agent, you have to summarize the portfolio of the contact
+
+the input is {!$Input:Contact.Name}
+
+The format should look like below
+
+Here is a summary of your mutual fund portfolio:
+
+📊 Number of Funds in Your Portfolio: {!$Input:Contact.Total_Fund_Count__c}  
+💰 Total Invested Amount: {!$Input:Contact.Total_Invested_Amount__c}  
+📈 Total Current Value: {!$Input:Contact.Total_Current_Value__c}  
+📈 Total Gain/Loss: {!$Input:Contact.Total_Gain_Loss__c}  
+📉 Total Gain/Loss Percentage: {!$Input:Contact.Average_Gain_Loss_Percent__c}%
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>BXCKltDbXEPlSasUv5L0SlXeXIkHIUxer2yPSlMt0u8=_6</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

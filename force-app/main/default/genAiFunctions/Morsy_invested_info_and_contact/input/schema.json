@@ -1,0 +1,14 @@
+{
+  "required" : [ "inputContactid" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "inputContactid" : {
+      "title" : "inputContactid",
+      "description" : "Pass  Context_ContactId as the input to the flow",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
