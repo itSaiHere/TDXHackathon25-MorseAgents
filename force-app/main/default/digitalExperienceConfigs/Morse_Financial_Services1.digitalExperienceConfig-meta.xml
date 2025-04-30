@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DigitalExperienceConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Morse Financial Services</label>
+    <site>
+        <urlPathPrefix>morseHome</urlPathPrefix>
+    </site>
+    <space>site/Morse_Financial_Services1</space>
+</DigitalExperienceConfig>
